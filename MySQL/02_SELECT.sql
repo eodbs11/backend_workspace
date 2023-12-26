@@ -784,6 +784,3 @@ select
 from employee
 order by 2, 4 desc;
 
--- if(job_code = j7, salary + salary * 0.1, salary + salary * 0.05) as "인상된 급여"
--- from employee
--- order by job_code
