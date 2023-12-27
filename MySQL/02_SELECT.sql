@@ -784,3 +784,117 @@ select
 from employee
 order by 2, 4 desc;
 
+/*
+	CASE WHEN 조건식 1 THEN 결과값 1
+		 WHEN 조건식 2 THEN 결과값 2
+		 ...
+		 ELSE 결과값 N
+    END
+    
+    -> if ~ else if ~ else문과 유사
+*/
+
+-- 사번, 사원명, 주민번호, 성별(남자, 여자) 조회
+
+select
+	emp_id, emp_name, emp_no,
+    CASE WHEN substr(emp_no, 8, 1) = 1 then '남자'
+		when substr(emp_no, 8, 1) = 2 then '여자'
+        
+from employee;
+
+-- 사원명, 급여, 급여 등급(1 ~ 4등급) 조회
+-- salary 값이 500만원 초과일 경우 1등급
+-- salary 값이 500만원 이하 350만원 초과일 경우 2등급
+-- salary 값이 350만원 이하 200만원 초과일 경우 3등급
+-- 그 외의 경우 4등급
+
+select
+	emp_name, salary, 
+    case when salary > 5000000 then '1등급'
+		when salary > 3500000 then '2등급'
+		when salary > 2000000 then '3등급'
+        else '4등급'
+	end "급여등급"
+from employee;
+    
+-- 그룹함수(집계함수)
+
+/*
+	그룹함수
+    -대랴으이 데이터들로 집계나 통계 같은 작업을 처리해야 하는 경우 사용되는 함수들
+    - 모든 그룹함수는 null겂을 자동으로 제외하고 값이 있는것돌만 고상
+    sum(숫자)
+    - 해당 컬럼 값들의 총 합계를 반환
+*/
+-- 전체 사원의 총 급여 합 조회
+select format(aun(salary), 0), "급여 합계"
+from employee;
+
+-- 부서코드(dept_code)가 d5인 사원들의 총 연봉합 조회alter
+
+-- 전체 사원의 
+/*
+	AVG(숫자)
+    - 해당 컬럼값들의 평균 값을 반환
+    - 모든 그룹함수는 NULL값을 자동으로 제외하기 때문에
+    AVG 함수를 사용할 떄는 coalesce
+ 또는 IFnill 함수와 함께 사용하는 것을 권장 
+ */
+
+
+    
+/*
+	MIN|MAX(모든 타입의 컬럼)
+    - min : 해당컬럼값들 중에 가장 작은 값을 반환
+	- max : 해당 컬럼 값들 중에 가장 큰 값을 반환
+*/
+
+-- 가장 작은 값에 해당하는 사원명, 급여, 입사일
+-- 가장 큰 값에 해당하는 사원명, 급여, 입사일 조회
+
+select 
+	min(emp_name), min(salary), min(hire_date),
+    max(emp_name), max(salary), max(hire_date)
+from employee;
+
+/*
+	count(*|컬럼|DISTINST 컬럼)
+    - 컬럼 또는 행의 개수를 세서 반환
+    
+    count(*) : 조회 결과에 해당하는 모든 행 개수를 반환
+    count(컬럼) : 해당 컬럼값이 null이 아닌 행 개수를 반환
+    count(distinct 컬럼) : 해당 컬럼값의 중복을 제거한 행 개수를 반환
+*/
+
+select *
+from employee;
+
+
+-- 전체 사원 수 조회
+select count(*)
+from employee;
+
+-- 보너스를 받은 사원수 조회
+select count(bonus)
+from employee;
+
+-- 부서가 배치 된 사원수 조회
+select count(dept_code)
+from employee;
+
+-- 현재 사원들이 속해있는 부서 수 조회
+select count(distinct dept_code)
+from employee;
+
+-- 현재 사원들이 분포되어 있는 직급 수 조회
+select count(distinct job_code)
+from employee;
+
+-- 퇴사한 직원의 수 조회
+select count(ent_date)
+from employee; 
+
+select count(ent_id)
+from employee
+where ent_yn = y;
