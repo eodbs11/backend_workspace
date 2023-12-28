@@ -320,13 +320,12 @@ SELECT emp_name, emp_no, dept_title, job_name
 FROM employee
 	JOIN job USING (job_code)
     JOIN department ON (dept_code = dept_id)
-    WHERE emp_name LIKE '전%'
-    AND substr(emp_no, 8, 1) = 2
-    AND emp_no LIKE '7%';
+    WHERE emp_name LIKE '전%'  
+    and emp_no Like '7_____-2%';
 
 -- 3. 보너스를 받은 직원들의 직원명, 보너스, 연봉, 부서명, 근무지역 조회
 --    단, 부서 코드가 없는 사원도 출력될 수 있게! OUTER JOIN 사용!
-SELECT emp_name, bonus, salary * 12, dept_title, local_name
+SELECT emp_name, bonus, (salary+ salary * ifnull(bonus,0))*12 연봉, dept_title, local_name
 FROM employee	
     left JOIN department ON (dept_code = dept_id)
 	left JOIN location ON (local_code = location_id)
@@ -338,7 +337,8 @@ FROM employee
     JOIN department ON (dept_code = dept_id)
 	JOIN location ON (local_code = location_id)
     JOIN national USING (national_code)
-    where national_name = '한국' or national_name = '일본';
+    where national_name = '한국' or national_name = '일본'
+    ORDER BY national_name;
 
 -- 5. 각 부서별 평균 급여를 조회하여 부서명, 평균 급여(format 사용)를 조회
 --    단, 부서 코드가 없는 사원들의 평균도 같이 나오게끔! OUTER JOIN 필요
