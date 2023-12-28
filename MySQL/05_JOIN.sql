@@ -329,7 +329,8 @@ FROM employee
 SELECT emp_name, bonus, salary * 12, dept_title, local_name
 FROM employee	
     left JOIN department ON (dept_code = dept_id)
-	left JOIN location ON (local_code = location_id);
+	left JOIN location ON (local_code = location_id)
+where bonus is not null;
 
 -- 4. 한국과 일본에서 근무하는 직원들의 직원명, 부서명, 근무지역, 근무 국가를 조회
 SELECT emp_name, dept_title, local_name, national_name
@@ -337,7 +338,7 @@ FROM employee
     JOIN department ON (dept_code = dept_id)
 	JOIN location ON (local_code = location_id)
     JOIN national USING (national_code)
-    where local_code = 'L1' or local_code = 'L2';
+    where national_name = '한국' or national_name = '일본';
 
 -- 5. 각 부서별 평균 급여를 조회하여 부서명, 평균 급여(format 사용)를 조회
 --    단, 부서 코드가 없는 사원들의 평균도 같이 나오게끔! OUTER JOIN 필요
