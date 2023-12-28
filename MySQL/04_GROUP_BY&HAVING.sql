@@ -47,7 +47,6 @@ from employee
 group by dept_code
 having avg(ifnull(salary, 0)) >= 3000000;    
 
-
 -- 직급별 총 급여의 합이 1000만원 이상인 직급만 조회
 select
 	job_code "직급",
@@ -64,10 +63,13 @@ from employee
 group by dept_code
 having count(bonus) = 0;
    
+-- 보너스를 받는 사원들만 조회   
 select 
-	dept_code, bonus
+	dept_code, count(*)
     from employee
-    order by 1;
+where bouns is not null
+group by dept_code;
+
 
 /*
 	 rollup|cube(컬럼1, 컬럼2) (MySQL X) - 실제 볼일은 없는 집계 함수
@@ -81,7 +83,7 @@ select
     grouping : rollup이나 cube에 의해 산출된 값이 해당 컬럼의 집합의 산출물이면
     -> 집계된 값인지, 아닌지 정도만 구분
     
-    sqld에서 꼭 이상하게 나오는 문제는 있지만 실제 쓰이진 않음
+    sqld에서 나오는 문제는 있지만 실제 쓰이진 않음
 */
 
 -- 직급별 급여 합 조회
@@ -98,8 +100,8 @@ group by dept_code, job_code with rollup;
         
     UNION - 합집합 : 두 쿼리문을 수행한 결과 값을 하나로 합쳐서 추출 (중복되는 행 제거)
     UNION ALL - 합집합 : 두 쿼리문을 수행한 결과 값을 하나로 합쳐서 추출(중복되는 행 제거X)
-    INTERSECT - 교집합 : 두 쿼리문을 수행한 결과값에 중복된 결과값만 추출
-    MINUS - 차집합 : 선행 쿼리문의 결과값에서 후행 쿼리문의 결과값을 뺀 나머지 결과값
+    INTERSECT - 교집합 : 두 쿼리문을 수행한 결과값에 중복된 결과값만 추출(MySQL X)
+    MINUS - 차집합 : 선행 쿼리문의 결과값에서 후행 쿼리문의 결과값을 뺀 나머지 결과값(MySQL X)
     --> INTERSECT, MINUS도 WHERE 절에서 AND 연산자를 사용해서 처리 가능
 */
 
@@ -112,16 +114,19 @@ select emp_id, emp_name, dept_code, salary
 from employee
 where dept_code = 'D5'
 union
+
 -- (2) 급여가 300만원 초과인 사원들
 select emp_id, emp_name, dept_code, salary
 from employee
 where salary > 3000000;
+
 -- 위쪽 쿼리문 대신 where 절에 or 연산자를 사용해서 처리 가능
 select emp_id, emp_name, dept_code, salary
 from employee
 where dept_code = 'D5' or salary > 3000000;
 
 -- 2. UNION ALL
+-- (1) 부서코드가 D5인 사원들
 select emp_id, emp_name, dept_code, salary
 from employee
 where dept_code = 'D5'
