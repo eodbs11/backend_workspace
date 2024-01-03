@@ -43,20 +43,14 @@ where title = 'NOON PAPI';
 
 -- 4. 각 카테고리별 이메일이 JOYCE.EDWARDS@sakilacustomer.org인 고객이 빌린 DVD 대여 수 조회
 
-SELECT * FROM rental; -- DVD 대여 정보 : customer_id, inventory_id
-SELECT * FROM inventory; -- DVD 대여점에서 관리하는 정보 : inventory_id, film_id
-SELECT * FROM customer; -- DVD 대여 고객 정보 : customer_id, address_id
-SELECT * FROM category; -- 영화 카테고리 정보 : category_id
-SELECT * FROM film_category; -- film과 category 연결 : film_id, category_id
-
-SELECT name 'category', count()
+SELECT name 'category', count(name)
  from category
  JOIN film_category USING(category_id)
  JOIN inventory USING(film_id)
  JOIN rental USING(inventory_id)
  JOIN customer USING(customer_id)
-where 
- ;
+ where email = 'JOYCE.EDWARDS@sakilacustomer.org'
+ group by name;
  
 -- 5. 이메일이 JOYCE.EDWARDS@sakilacustomer.org인 고객이 가장 최근에 빌린 영화 제목과 영화 내용을 조회
 

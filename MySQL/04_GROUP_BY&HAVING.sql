@@ -64,11 +64,12 @@ group by dept_code
 having count(bonus) = 0;
    
 -- 보너스를 받는 사원들만 조회   
-select 
-	dept_code, count(*)
-    from employee
-where bouns is not null
-group by dept_code;
+-- select 
+-- 	dept_code, 
+--     count(*)
+-- from employee
+-- where bouns is not null
+-- group by dept_code;
 
 
 /*
