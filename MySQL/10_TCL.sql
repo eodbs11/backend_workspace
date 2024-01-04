@@ -35,6 +35,7 @@ set autocommit = 0;
 -- 트랜잭션 시작! 
 START transaction;
 
+Drop TABLE dept_copy;
 -- 테스트 진행할 테이블들 추가! 
 CREATE TABLE dept_copy
 AS SELECT * FROM kh.department;
@@ -59,18 +60,14 @@ START transaction;
 SELECT * FROM emp_salary;
 DROP TABLE emp_salary;
 
--- emp_salary 테이블에서 노옹철 사원의 급여를 1000000원으로 변경
+-- emp_salary 테이블에서 노옹철 사원의 급여를 3000000원으로 변경
 
 
 UPDATE emp_salary
-SET salary = 1000000
+SET salary = 3000000
 WHERE emp_name = '노옹철';
 
-
-DROP TABLE dept_copy;
-
-
-START transaction;
+ROLLBACK;
 
 CREATE TABLE emp_test
 AS SELECT emp_id, emp_name, dept_code

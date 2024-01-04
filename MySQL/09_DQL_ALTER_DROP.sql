@@ -25,8 +25,8 @@ ALTER TABLE dept_copy ADD lname VARCHAR(20) DEFAULT '한국';
 
 /*
 	1-2. 컬럼 수정 (MODIFY)
-    - 자료형 변경 : ALTER TABLE 테이블명 MODIFY 컬럼명 변경할자료형;
-    - 기본값 변경 : ALTER TABLE 테이블명 MODIFY 컬럼명 자료형 DEFAULT 변경할기본값;
+    - 자료형 변경 : ALTER TABLE 테이블명 MODIFY 컬럼명 변경할 자료형;
+    - 기본값 변경 : ALTER TABLE 테이블명 MODIFY 컬럼명 자료형 DEFAULT 변경할 기본값;
     
     * 참고 : DEFAULT 삭제
     ALTER TABLE 테이블명 MODIFY 컬럼명 자료형 DEFAULT NULL;
@@ -34,14 +34,14 @@ ALTER TABLE dept_copy ADD lname VARCHAR(20) DEFAULT '한국';
 -- dept_id 컬럼의 자료형 CHAR(3)으로 변경 
 ALTER TABLE dept_copy MODIFY dept_id CHAR(3);
 
-ALTER TABLE dept_copy MODIFY dept_id INT; -- 에러 발생!
+ALTER TABLE dept_copy MODIFY dept_id INT; -- 에러 발생
 ALTER TABLE dept_copy MODIFY cname INT; -- 기존 데이터가 없으면 자료형 변경이 가능 
 
 -- dept_title의 자료형을 VARCHAR(5)로 변경
 ALTER TABLE dept_copy MODIFY dept_title VARCHAR(5);
--- > 변경하려는 자료형의 크기보다 이미 큰 값이 존재하면 에러 발생! 
+-- > 변경하려는 자료형의 크기보다 이미 큰 값이 존재하면 에러 발생
 
--- 다중 수정 가능! 
+-- 한 번에 다중 수정 가능 
 -- dept_title 컬럼의 자료형은 VARCHAR(40),
 -- location_id 컬럼의 자료형은 VARCHAR(2),
 -- lname 컬럼의 기본값을 미국으로 변경 (자료형)
@@ -74,7 +74,7 @@ ALTER TABLE member DROP FOREIGN KEY member_grade_id_fk;
 
 /*
 	1-4. 컬럼명 변경 (RENAME COLUMN)
-    ALTER TABLE 테이블명 RENAME COLUMN 기존컬럼명 TO 변경할컬럼명;
+    ALTER TABLE 테이블명 RENAME COLUMN 기존컬럼명 TO 변경할 컬럼명;
 */
 -- dept_copy 테이블에서 lname 컬럼명을 location_name으로 변경 
 ALTER TABLE dept_copy RENAME COLUMN lname TO location_name;

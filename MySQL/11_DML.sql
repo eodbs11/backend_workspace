@@ -167,45 +167,39 @@ update emp_bonus
 set bonus = 0.3
 where local_name LIKE '%ASIA%';
 
-CREATE TABLE emp_bonus
-SELECT emp_id
-FROM kh.employee
-JOIN kh.department ON (dept_code = dept_id)
-JOIN kh.location ON (location_id = local_code)
-where local_name LIKE '%ASIA%';
 
-update emp_salary
-set bonus = 0.3
-where emp_bonus in (
+UPDATE emp_salary
+SET bonus = 0.3
+WHERE emp_id IN (
 					SELECT emp_id
 					FROM kh.employee
 						JOIN kh.department ON (dept_code = dept_id)
 						JOIN kh.location ON (location_id = local_code)
-					where local_name LIKE '%ASIA%'
-					);
+					WHERE local_name LIKE 'ASIA%'
+				);
 
+rollback;
 
-SELECT*FROM  emp_bonus;
 DROP TABLE emp_bonus;
 
 -- 셀렉트하고 인서트 하고 업데이트 에서 시험
-
-
-
-update emp_salary set salary = 7000000,  bonus = 0.2 WHERE emp_name = "선동일"
 
 /*
 	DELETE
     -테이블에 기록된 데이터를 삭제하는 구문
     
+	DELETE FROM 테이블명 
+    WHERE 조건식;
+    
     -where 절을 제시하지 않으면 전체 행이 삭제된다.
 */
 -- emp_salary에서 dept_code가 D5인 직원들을 삭제
-
 DELETE FROM emp_salary
 WHERE dept_code = 'd5';
 
 SELECT*FROM  emp_salary;
+
+ROLLBACK;
 
 /*
 	TRUNCATE
@@ -228,7 +222,6 @@ TRUNCATE TABLE dept_copy;
 TRUNCATE TABLE emp_salary;
 
 ROLLBACK; -- TRUNCATE는 ROLLBACK 불가능
-
 
 DROP TABLE dept_copy;
 DROP TABLE emp_salary;
