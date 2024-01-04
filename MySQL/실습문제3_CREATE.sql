@@ -7,7 +7,7 @@
 --           phone(전화번호)
 
 CREATE TABLE TB_PUBLISHER(  
-	PUB_NO INT PRIMARY KEY,
+	PUB_NO INT AUTO_INCREMENT PRIMARY KEY,
     PUB_NAME VARCHAR(20) NOT NULL,    
     PHONE VARCHAR(13)    
 );
@@ -36,12 +36,11 @@ DROP TABLE tb_book;
 
 
 CREATE TABLE tb_book(  
-	BK_NO INT, 
-    BK_TITLE VARCHAR(30) NOT NULL,
-    BK_AUTHOR VARCHAR(30) NOT NULL,
+	BK_NO INT AUTO_INCREMENT PRIMARY KEY, 
+    BK_TITLE VARCHAR(50) NOT NULL,
+    BK_AUTHOR VARCHAR(20) NOT NULL,
     BK_PRICE INT,
     BK_PUB_NO INT,
-    PRIMARY KEY (BK_NO),
     Foreign key (BK_PUB_NO) REFERENCES TB_PUBLISHER(PUB_NO) ON DELETE CASCADE
 );
 
@@ -76,15 +75,16 @@ SELECT * from tb_book;
 DROP TABLE tb_member;
 SELECT * from tb_member;
 
-CREATE TABLE tb_member(  
-	member_no INT PRIMARY KEY, 
-    member_id VARCHAR(30) NOT NULL UNIQUE,
+
+CREATE TABLE tb_member(
+	member_no INT AUTO_INCREMENT PRIMARY KEY,
+    member_id VARCHAR(30) UNIQUE NOT NULL,
     member_pwd VARCHAR(30) NOT NULL,
-    member_name VARCHAR(30) NOT NULL,
-    gender CHAR(3) CHECK (gender IN ('M', 'F')) NOT NULL,
-    address VARCHAR(30) NOT NULL,
-    phone VARCHAR(15) NOT NULL,
-    status CHAR(3) CHECK (status IN ('Y', 'N')) DEFAULT 'N',
+    member_name VARCHAR(20) NOT NULL,
+    gender VARCHAR(1) CHECK(gender IN ('M', 'F')),
+    address VARCHAR(100),
+    phone VARCHAR(20),
+    status VARCHAR(1) CHECK(status IN ('Y', 'N')) DEFAULT 'N',
     enroll_date DATE DEFAULT (current_date)
 );
 
@@ -110,13 +110,20 @@ DROP TABLE tb_rent;
 SELECT * from tb_rent;
 
 CREATE TABLE tb_rent(  
-	rent_no INT AUTO_INCREMENT,
-    rent_mem_no INT,
-    rent_book_no INT,
-    rent_date DATE DEFAULT (current_date),
-	PRIMARY KEY(rent_no),
+	rent_no INT AUTO_INCREMENT PRIMARY KEY,
+    mem_no INT,
+    bk_no INT,
+    rent_date DATE DEFAULT (current_date),	
     Foreign key (rent_mem_no) REFERENCES tb_member(member_no) ON DELETE SET NULL,    
     Foreign key (rent_book_no) REFERENCES tb_book(BK_NO) ON DELETE SET NULL
+);
+
+DROP TABLE tb_rent;
+CREATE TABLE tb_rent(
+	rent_no INT AUTO_INCREMENT PRIMARY KEY,
+    member_no INT,
+    bk_no INT,
+    rent_date DATE DEFAULT (current_date) 
 );
 
 INSERT INTO tb_rent VALUES(1, 1, 2, default);
@@ -127,12 +134,14 @@ INSERT INTO tb_rent VALUES(5, 1, 5, default);
 
 -- 5. 2번 도서를 대여한 회원의 이름, 아이디, 대여일, 반납 예정일(대여일 + 7일)을 조회하시오.
 
-SELECT member_name 회원이름, member_id 아이디, enroll_date 대여일, enroll_date+7 반납예정일
- from tb_rent
- JOIN tb_member USING(member_name)
- JOIN tb_member USING(member_id)
- JOIN tb_member USING(enroll_date) 
+SELECT member_name1 회원이름, member_id1 아이디, enroll_date1 대여일, enroll_date1+7 반납예정일
+ from tb_rent 
+ JOIN tb_member USING(mem_no)
+ JOIN tb_member USING(bk_no) 
  where rent_book_no = 2;
+ 
+ SELECT * from tb_member;
+  SELECT * from tb_rent;
 
 -- 6. 회원번호가 1번인 회원이 대여한 도서들의 도서명, 출판사명, 대여일, 반납예정일을 조회하시오.
 
