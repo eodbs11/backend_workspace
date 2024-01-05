@@ -110,3 +110,8 @@ INSERT INTO sal_grade (sal_level, min_sal, max_sal) VALUES ('S3',4000000,4999999
 INSERT INTO sal_grade (sal_level, min_sal, max_sal) VALUES ('S4',3000000,3999999);
 INSERT INTO sal_grade (sal_level, min_sal, max_sal) VALUES ('S5',2000000,2999999);
 INSERT INTO sal_grade (sal_level, min_sal, max_sal) VALUES ('S6',1000000,1999999);
+
+ALTER TABLE employee ADD FOREIGN KEY (dept_code) REFERENCES department(dept_id);
+ALTER TABLE employee ADD FOREIGN KEY (job_code) REFERENCES job(job_code);
+ALTER TABLE department ADD FOREIGN KEY (location_id) REFERENCES location(local_code);
+ALTER TABLE location ADD FOREIGN KEY (national_code) REFERENCES national(national_code);
