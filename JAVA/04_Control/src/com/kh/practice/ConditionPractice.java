@@ -10,12 +10,12 @@ public class ConditionPractice {
 		ConditionPractice c = new ConditionPractice();
 //		c.practice1();
 //		c.practice2();
-//		c.practice3();
+		c.practice3();
 //		c.practice4();
 //		c.practice5();
 //		c.practice6();
-		c.practice7();
-		c.practice8();
+//		c.practice7();
+//		c.practice8();
 		c.practice9();
 		c.practice10();
 		c.practice11();
@@ -66,7 +66,9 @@ public class ConditionPractice {
 	 * 3. A 피자가게는 피자를 두 조각에서 열 조각까지 원하는 조각 수로 잘라준다. 피자 조각 수와 피자를 먹는 사람의 수를 입력받아 한 사람
 	 * 당 최소 한 조각 이상 피자를 먹으려면 최소 몇 판의 피자를 시켜야 하는지 출력하세요.
 	 * 
-	 * 피자 조각 수 : 7 피자 먹는 사람 수 : 10 2
+	 * 피자 조각 수 : 7 
+	 * 피자 먹는 사람 수 : 10 
+	 * 2
 	 * 
 	 */
 	public void practice3() {
@@ -198,13 +200,13 @@ public class ConditionPractice {
 	 * 키(m)를 입력해 주세요 : 1.62 몸무게(kg)를 입력해 주세요 : 46 BMI 지수 : 17.527815881725342 저체중
 	 * 
 	 */
-	public void practice8() {		
-		System.out.print("키 : ");
-    	double m = sc.nextLine();
-    	System.out.print("몸무게 : ");
-    	double kg = sc.nextLine();
-		
-	}
+//	public void practice8() {		
+//		System.out.print("키 : ");
+//    	double m = sc.nextLine();
+//    	System.out.print("몸무게 : ");
+//    	double kg = sc.nextLine();
+//		
+//	}
 
 	/*
 	 * 9. 키보드로 두 개의 양수와 연산 기호를 입력 받아 연산 기호에 맞춰 연산 결과를 출력하세요. (단, 양수가 아닌 값을 입력하거나
