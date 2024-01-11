@@ -1,4 +1,4 @@
-package com.kh.variable;
+package com.kh.operator;
 
 public class G_Compound {
 

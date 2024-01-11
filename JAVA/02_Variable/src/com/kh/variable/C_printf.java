@@ -41,7 +41,7 @@ public class C_printf {
 		double dNum1 = 1.23456789;
 		double dNum2 = 4.53;
 		
-		System.out.printf("%f\t%f", dNum1, dNum2); // 무조건 소수점 아래 6번쨰 자리까지 표현
+		System.out.printf("%f\t%f", dNum1, dNum2); // 무조건 소수점 아래 6번째 자리까지 표현
 		System.out.printf("%.3f\t%.2f\n", dNum1, dNum2);
 		
 		System.out.println("---------------------------------");
@@ -50,8 +50,5 @@ public class C_printf {
 		String str = "Hello";
 		System.out.printf("%c %10s %s\n", ch, str, ch, str); // a      Hello a
 		System.out.printf("%C %S", ch, str); // A Hello --> 대문자로만 출력
-
 	}
-	
-
 }

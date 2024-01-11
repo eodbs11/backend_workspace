@@ -8,7 +8,7 @@ public class A_LogicalNEgagation {
 		/*
 		 * 논리 부정 연산자
 		 * 
-		 * |논리값(true, false)
+		 * !논리값(true, false)
 		 * 
 		 * -논리값을 반대로 바꾸는 연산자 (true -> false, false -> true)
 		 * 
