@@ -1,8 +1,8 @@
-DROP TABLE department;
 DROP TABLE employee;
-DROP TABLE job;
+DROP TABLE department;
 DROP TABLE location;
 DROP TABLE national;
+DROP TABLE job;
 DROP TABLE sal_grade;
 --
 CREATE TABLE department(

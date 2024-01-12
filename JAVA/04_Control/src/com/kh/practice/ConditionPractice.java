@@ -10,9 +10,9 @@ public class ConditionPractice {
 		ConditionPractice c = new ConditionPractice();
 //		c.practice1();
 //		c.practice2();
-		c.practice3();
+//		c.practice3();
 //		c.practice4();
-//		c.practice5();
+		c.practice5();
 //		c.practice6();
 //		c.practice7();
 //		c.practice8();
@@ -125,17 +125,30 @@ public class ConditionPractice {
 	 */
 	
 	//---------------------------------------아직 못 품!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------
+//	public void practice5() {    	
+//    	System.out.print("구매한 옷 가격 : ");
+//    	int pr = Integer.parseInt(sc.nextLine());
+//    	String price = "";    	
+//    	price = String.format("%,d", pr);    	
+//    	if(pr >= 500000){
+//    		System.out.println(pr - pr * 0.2);
+//    	}else if(pr >= 300000){
+//    		System.out.println(pr - pr * 0.1);
+//    	}else if(pr >= 100000){
+//        		System.out.println(pr - pr * 0.05);
+//    	}else{
+//    		System.out.println(pr);
+//    	}
+//    }
+	
 	public void practice5() {    	
     	System.out.print("구매한 옷 가격 : ");
-    	int pr = Integer.parseInt(sc.nextLine());
-    	String price = "";    	
-    	price = String.format("%,d", price);
-    	
+    	int pr = sc.nextInt();   	   	
     	if(pr >= 500000){
     		System.out.println(pr - pr * 0.2);
     	}else if(pr >= 300000){
     		System.out.println(pr - pr * 0.1);
-    	}else if(pr >= 300000){
+    	}else if(pr >= 100000){
         		System.out.println(pr - pr * 0.05);
     	}else{
     		System.out.println(pr);
@@ -254,6 +267,15 @@ public class ConditionPractice {
 	 */
 	public void practice11() {
 
+		System.out.print("중간 고사 점수 : ");
+    	String s1 = sc.nextLine();
+    	System.out.print("기말 고사 점수 : ");
+    	String s2 = sc.nextLine();
+    	System.out.print("과제 점수 : ");
+    	String s3 = sc.nextLine();
+    	System.out.print("출석 회수 : ");
+    	String s4 = sc.nextLine();
+		
 	}
 
 }
