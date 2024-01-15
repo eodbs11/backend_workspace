@@ -9,10 +9,10 @@ public class OperatorPractice {
 	public static void main(String[] args) {				
 		
 		OperatorPractice o = new OperatorPractice();
-		o.method1();
-		o.method2();
-		o.method3();
-		o.method4();
+//		o.method1();
+//		o.method2();
+//		o.method3();
+//		o.method4();
 		o.method5();
 		o.method6();
 		
@@ -83,14 +83,16 @@ public class OperatorPractice {
 	public void method6() {
 		
 		System.out.print("사과의 개수를 입력하세요 > ");
-		int a =sc.nextInt();
+		int a = sc.nextInt();
 		
 		System.out.print("하나의 바구니에 들어갈 수 있는 사과의 개수를 입력하세요 > ");
-		int b =sc.nextInt();
+		int b = sc.nextInt();
 		
 		int c = a % b >= 1 ? a/b+1 : a/b;
 		
-		System.out.print(c);		
+		System.out.print(c);
+		
+		// (apple / count + (apple % count == - ? 0:1)
 		
 	}
 	

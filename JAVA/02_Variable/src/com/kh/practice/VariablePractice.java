@@ -17,21 +17,33 @@ public class VariablePractice {
 
 	public void method1() {
 		
-		int a = 10000;
-		int b = 7000;
+//		int a = 10000;
+//		int b = 7000;
+//		
+//		System.out.print("성인 수 > ");
+//		int adult = sc.nextInt();
+//		
+//		System.out.print("청소년 수 > ");
+//		int teen = sc.nextInt();	
+//		
+//		int c = (adult * a);
+//		int d = (teen * b);
+//		int e = (c + d);		
+//		
+//		System.out.println("성인 " + adult +"명 : " + c+ "원\n" + "청소년 " + teen +"명 : " + d + "원\n\n"+ "총 금액 : "+ e +"원");
+//		
 		
-		System.out.print("성인 수 > ");
-		int adult = sc.nextInt();
+		int adultPrice = 10000;
+		int teenPrice = 7000;
+		int adultCount = 2;
+		int teenCount = 3;
 		
-		System.out.print("청소년 수 > ");
-		int teen = sc.nextInt();	
+		int adultTotal = adultPrice * adultCount;
+		int teenTotal = teenPrice * teenCount;
 		
-		int c = (adult * a);
-		int d = (teen * b);
-		int e = (c + d);		
-		
-		System.out.println("성인 " + adult +"명 : " + c+ "원\n" + "청소년 " + teen +"명 : " + d + "원\n\n"+ "총 금액 : "+ e +"원");
-		
+		System.out.printf("성인 %d명 : %d원\n", adultCount, adultTotal);
+		System.out.printf("청소년 %d명 : %d원\n\n", teenCount, teenTotal);
+		System.out.printf("총 금액 : %d원", adultTotal, teenTotal);
 	}
 	
 	public void method2() {

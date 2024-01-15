@@ -115,6 +115,8 @@ public class ConditionPractice {
 					+ String.format("%.1f", b) + "\n불합격입니다.");
 		}
 	}
+	
+	// "평균 : %.2f", (double)sum / 3);
 
 	/*
 	 * 5. B 옷가게는 10만 원 이상 사면 5%, 30만 원 이상 사면 10%, 50만원 이상 사면 20%를 할인해준다. 구매한 옷의 가격을
@@ -215,7 +217,7 @@ public class ConditionPractice {
 	 */
 //	public void practice8() {		
 //		System.out.print("키 : ");
-//    	double m = sc.nextLine();
+//    	double m = sc.nextLine(); 
 //    	System.out.print("몸무게 : ");
 //    	double kg = sc.nextLine();
 //		
