@@ -1,4 +1,4 @@
-package com.kh.condition;
+package com.kh.loop;
 
 import java.util.Scanner;
 

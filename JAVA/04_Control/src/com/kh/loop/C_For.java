@@ -1,4 +1,4 @@
-package com.kh.condition;
+package com.kh.loop;
 
 import java.util.Scanner;
 
@@ -10,18 +10,17 @@ public class C_For {
 	 * for문
 	 * 
 	 * for(초기식; 조건식; 증감식){
-	 * 
+	 * 				실행코드
 	 * }
 	 * 
-	 * - 주어진 횟수만큼 코드를 반복 실행하는 구문 - 초기식 : 반복문이 수행될 때 단 한 번만 실행, 반복문 안에서 사용할 변수를 선언하고
-	 * 초기값을 대입 - 조건식 : 결과가 true이면 실행코드를 실행, false이면 실행하지 않고 반복문을 빠져나감 - 증감식 : 반복문에서
-	 * 사용하는 변수의 값을 증감, 주로 증감 연산자를 사용
-	 * 
-	 * 
+	 * - 주어진 횟수만큼 코드를 반복 실행하는 구문 
+	 * - 초기식 : 반복문이 수행될 때 단 한 번만 실행, 반복문 안에서 사용할 변수를 선언하고 초기값을 대입 
+	 * - 조건식 : 결과가 true이면 실행코드를 실행, false이면 실행하지 않고 반복문을 빠져나감 
+	 * - 증감식 : 반복문에서 사용하는 변수의 값을 증감, 주로 증감 연산자를 사용 	 * 
 	 * 
 	 */
 
-	// 1~5 출력
+	// 1 ~ 5 출력
 	public void method1() {
 		for (int i = 1; i <= 5; i++) {
 			System.out.println(i);
@@ -50,20 +49,17 @@ public class C_For {
 	/*
 	 * continue문
 	 * 
-	 * - continue문은 반복문 안에서 사용 - 반복문 안에서 continue를 만나면 "현재 구문" 종료 - 반복문을 빠져나가는건 아님!
-	 * 다음 반복을 계속해서 수행
+	 * - continue문은 반복문 안에서 사용 
+	 * - 반복문 안에서 continue를 만나면 "현재 구문" 종료 
+	 * - 반복문을 빠져나가는건 아님!
+	 *    다음 반복을 계속해서 수행
 	 * 
 	 */
 
 	// 1~10사이의 짝수만 출력
 	public void method4() {
-//		for (int i = 2; i <= 10; i += 2) {
-//			System.out.println(i);
-//		}
-
 		for (int i = 1; i <= 10; i++) {
-			if (i % 2 != 0)
-				continue;
+			if (i % 2 != 0) continue;
 			System.out.println(i);
 		}
 	}
@@ -88,19 +84,21 @@ public class C_For {
 	// 1부터 랜덤값까지의 합꼐
 
 	/*
-	 * java.lang.Math 클래스에서 제공하는 random 메서드 호출할 떄마다 매번 다른 랜덤값을 얻어낼수 있음
+	 * java.lang.Math 클래스에서 제공하는 random() 메서드 
+	 * 호출할 떄마다 매번 다른 랜덤값을 얻어낼수 있음
 	 */
 	public void method7() {
-		double random = Math.random();
-		random = Math.random() * 10;
-		random = Math.random() * 10 + 1;
-		System.out.println((int) random); // 1 ~10 까지의 랜덤값
-
-		int num = (int) random;
+		double random = Math.random(); // 0.0 <= random < 1.0
+		random = Math.random() * 10; // 0.0 <= random < 10.0
+		random = Math.random() * 10 + 1; // 1.0 <= random < 11.0
+		
+		int num = (int) random;  // 1 ~10 까지의 랜덤값
 		int sum = 0;
+		
 		for (int i = 1; i <= num; i++) {
 			sum += i;
 		}
+		System.out.println(sum);
 	}
 
 	/*

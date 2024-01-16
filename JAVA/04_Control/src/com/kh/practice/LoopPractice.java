@@ -120,7 +120,11 @@ class LoopPractice {
     public static void main(String[] args) {
     	LoopPractice l = new LoopPractice();
 //    	l.method1();
-    	l.method2();
+//    	l.method2();
+//    	l.method3();
+    	l.method4();
+//    	l.method5();
+//    	l.method6();
     }
     
 }
