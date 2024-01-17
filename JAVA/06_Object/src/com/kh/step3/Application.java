@@ -21,11 +21,17 @@ public class Application {
 		c.a = 3;
 		c.b = 98;
 		
+	
+		
 		System.out.println("더하기 : " + c.add());
 		System.out.println("빼기 : " + c.substract());
 		System.out.println("곱하기 : " + c.multiply());
 		System.out.println("곱하기 2 : " + c.multiply(100, 200));
 		System.out.println("나누기 : " + Calculator.divide(c.a, c.b));
+		System.out.println("팩토리얼 : " + c.factorial(4));
+		System.out.println("팩토리얼 : " + c.factorial2(4));
 	}
 
 }
+
+// while
