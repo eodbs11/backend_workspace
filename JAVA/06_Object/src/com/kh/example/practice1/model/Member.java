@@ -24,8 +24,6 @@ public class Member {
 
 /*
  * changeName(name:String):void
- * printName():void
- * 
- * 
+ * printName():void * 
  * 
  */

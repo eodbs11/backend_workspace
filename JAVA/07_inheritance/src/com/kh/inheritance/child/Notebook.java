@@ -36,8 +36,8 @@ public class Notebook extends Product{
 		this.cpu = cpu;
 		
 		// 2. super.를 통해서 부모의 변수에 접근
-		super.brand; // 부모가 private - 직접 접근x
-		super.pCode; // 부모가 default - 같은 패키지에 있어야만 직접 접근 o
+//		super.brand; // 부모가 private - 직접 접근x
+//		super.pCode; // 부모가 default - 같은 패키지에 있어야만 직접 접근 o
 		super.name = name; // 부모가 protected - 상속관계일 때 자식 객체에서 직접 접근 o
 		super.price = price; // 부모가 public - 어디서든 접근 가능
 		

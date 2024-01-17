@@ -10,16 +10,16 @@ public class ArrayPractice {
 	 * 길이가 5인 배열을 선언하고 과일 5개로 초기화 한 후 본인이 좋아하는 과일 하나를 출력하세요. (과일 5개는 뭐든지~)
 	 * 
 	 * */
-	public void method1() {		
-	
-		 String[] arr1 = {"바나나", "사과", "키위", "청포도", "배"};
-
-		 for(String[] i: arr1) {
-				System.out.println(Arrays.toString(i));
-	 }		 
+//	public void method1() {		
+//	
+//		 String[] arr1 = {"바나나", "사과", "키위", "청포도", "배"};
+//
+//		 for(String[] i: arr1) {
+//				System.out.println(Arrays.toString(i));
+//	 }		 
 	 
 		
-	}
+//	}
 	
 	/*
 	 * 사용자에게 배열의 길이와 배열의 크기 만큼 사용자한테 입력 받은 값으로 초기화 한 후
@@ -69,10 +69,19 @@ public class ArrayPractice {
 	 * 
 	 * */
 	public void method5() {
+		System.out.print("단어 입력 : ");
+		String word = sc.nextLine();
 		
+		String reverse ="";
+		for(int i = word.length() -1; i>=0; i--) {
+			reverse = reverse + word.charAt(i);			
+		}
+		
+	System.out.println(reverse);
 	}
 	
 	public static void main(String[] args) {
     	ArrayPractice a = new ArrayPractice();
+    	
 	}
 }
