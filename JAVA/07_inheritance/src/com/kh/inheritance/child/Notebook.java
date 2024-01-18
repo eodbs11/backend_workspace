@@ -49,5 +49,20 @@ public class Notebook extends Product{
 		setName(name);
 	}
 
+	public String getCpu() {
+		return cpu;
+	}
+
+	public void setCpu(String cpu) {
+		this.cpu = cpu;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + ", Notebook [cpu=" + cpu + "]";
+	}
+
+
+	
 	
 }

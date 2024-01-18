@@ -6,8 +6,6 @@ import com.kh.example.practice2.model.Snack;
 
 public class SnackController {
 	
-	Scanner sc = new Scanner(System.in);
-	
 	private Snack s = new Snack();
 	
 	public String saveData( String kind, String name, String flavor, 
