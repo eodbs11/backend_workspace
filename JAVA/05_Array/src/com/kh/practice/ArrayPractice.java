@@ -10,13 +10,14 @@ public class ArrayPractice {
 	 * 길이가 5인 배열을 선언하고 과일 5개로 초기화 한 후 본인이 좋아하는 과일 하나를 출력하세요. (과일 5개는 뭐든지~)
 	 * 
 	 * */
-//	public void method1() {		
-//	
-//		 String[] arr1 = {"바나나", "사과", "키위", "청포도", "배"};
-//
-//		 for(String[] i: arr1) {
-//				System.out.println(Arrays.toString(i));
-//	 }		 
+	public void method1() {		
+	
+		 String[] arr1 = {"바나나", "사과", "키위", "청포도", "배"};
+
+		for(int i = 0; i < 5; i++) {
+			System.out.println(arr1[0]);
+		}
+	 }		 
 	 
 		
 //	}
@@ -85,7 +86,7 @@ public class ArrayPractice {
 	public static void main(String[] args) {
     	ArrayPractice a = new ArrayPractice();
     	
-//    	a.method1();
+    	a.method1();
 //    	a.method2();
 //    	a.method3();
 //    	a.method4();
