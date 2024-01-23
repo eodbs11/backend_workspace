@@ -287,7 +287,6 @@ public class ConditionPractice {
 	 * 숫자 입력 : 15 숫자 입력 : 4 연산자를 입력(+,-,*,/,%) : / 15 / 4 = 3
 	 * 
 	 */
-	public void practice9() {
 		 public void practice9() {
 		    	
 		    	System.out.print("숫자 입력 : ");
@@ -334,7 +333,7 @@ public class ConditionPractice {
 		    }
 		
 		
-	}
+	
 
 	/*
 	 * 10. 아래 예시와 같이 메뉴를 출력하고 메뉴 번호를 누르면 “OO메뉴입니다“를, 종료 번호를 누르면 “프로그램이 종료됩니다.”를

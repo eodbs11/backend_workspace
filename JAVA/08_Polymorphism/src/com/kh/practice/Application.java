@@ -14,6 +14,7 @@ public class Application {
 
 		Application app = new Application();
 		
+		
 		boolean check = true;
 		while(check) {
 			int select = app.mainMenu();
@@ -35,6 +36,7 @@ public class Application {
 		
 	}
 	
+	
 	//메인메뉴
 	public int mainMenu() {
 		System.out.println("==== 메뉴 ====");
@@ -54,13 +56,11 @@ public class Application {
 			
 	}
 	
-	public int bookShare() {
-		System.out.println("==== 메뉴 ====");
-		System.out.println("1. 마이페이지");
-		System.out.println("2. 도서 대여하기");
-		System.out.println("3. 프로그램 종료하기");
-		System.out.println("메뉴 번호 : ");
-		return Integer.parseInt(sc.nextLine());	
+	public int bookShare() {		
+		Member[] mArr = mc.printAll();
+		for(Member m : mArr) {
+			if(m!=null) System.out.println(m);
+		}	
 			
 	}
 	
