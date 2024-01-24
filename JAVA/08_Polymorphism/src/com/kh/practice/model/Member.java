@@ -1,61 +1,50 @@
 package com.kh.practice.model;
 
+import java.util.Arrays;
+
+// model class는 캡슐화! <- 변수 private!
 public class Member {
 
-	private String name; // 이름
-	private int age; // 나이
-	private int cookCoupon; // 요리쿠폰 개수
-	private Book book;// 대여중인 책 1권 -- 포함관계
-	
-	public Member() {
-	}
-	
-	public Member(String name, int age, int cookCoupon, Book book) {
-		this.name = name;
-		this.age = age;
-		this.cookCoupon = cookCoupon;
-		this.book = book;
-	}	
+	private String name = "";
+	private int age = 0;
+	private int coupon = 0;
+	private Book[] bookList = new Book[3];
 	
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public int getAge() {
 		return age;
 	}
-
 	public void setAge(int age) {
 		this.age = age;
 	}
-
-	public int getCookCoupon() {
-		return cookCoupon;
+	public int getCoupon() {
+		return coupon;
+	}
+	public void setCoupon(int coupon) {
+		this.coupon = coupon;
 	}
 
-	public void setCookCoupon(int cookCoupon) {
-		this.cookCoupon = cookCoupon;
+	public Book[] getBookList() {
+		return bookList;
 	}
 
-	public Book getBook() {
-		return book;
-	}
-
-	public void setBook(Book book) {
-		this.book = book;
+	public void setBookList(Book[] bookList) {
+		this.bookList = bookList;
 	}
 
 	@Override
 	public String toString() {
-		return "Member [name=" + name + ", age=" + age + ", cookCoupon=" + cookCoupon + ", book=" + book + "]";
+		return "Member [name=" + name + ", age=" + age + ", coupon=" + coupon + ", bookList="
+				+ Arrays.toString(bookList) + "]";
 	}
 	
+
 	
 	
 }
-
-

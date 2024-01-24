@@ -28,7 +28,7 @@ public class MemberController {
 	}
 	
 	// 멤버 index를 아이디로 조회 --> 에러 발생 시키는 부분이 추가 / 수정!
-	public int checkId(String id) throws DuplicateNameException, RecordNotFoundException {
+	public int checkId(String id) throws DuplicateNameException{
 		for(int i=0; i<mArr.length; i++) {
 			if(mArr[i]!=null && mArr[i].getId().equals(id)) {
 				throw new DuplicateNameException();
@@ -39,7 +39,7 @@ public class MemberController {
 		return -1;
 	}
 	
-	public int checkUpdateId(String id) throws DuplicateNameException, RecordNotFoundException {
+	public int checkUpdateId(String id) throws RecordNotFoundException {
 		for(int i=0; i<mArr.length; i++) {
 			if(mArr[i]!=null && mArr[i].getId().equals(id)) {
 				// throw new DuplicateNameException();
