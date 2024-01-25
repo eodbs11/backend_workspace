@@ -81,10 +81,10 @@ public class Application {
 					// -> 새로운 쿠폰 값(setter) = 기존 쿠폰 값(getter) +1
 					// setter + getter
 					m.setCoupon(m.getCoupon() + 1);
-					//내가 대여한 책의 쿠폰이 true인 경우
+					// 내가 대여한 책의 쿠폰이 true인 경우
 				}
 				if (m.getAge() >= selectBook.getAccessAge()) {
-					//내 나이가 대여한 책의 나이제한 이상인 경우
+					// 내 나이가 대여한 책의 나이제한 이상인 경우
 					newBookList[i] = books[num];
 				}
 				break;
