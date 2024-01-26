@@ -8,7 +8,7 @@ import com.kh.array.practice2.model.Member;
 
 public class MemberController {
 
-	private Member[] mArr = new Member[3];
+	private Member[] mArr = new Member[3]; //배열은 무조건 최대값 정해줘야 함 collection으로 대체
 	public int count = 0;
 	
 	// 멤버 추가
