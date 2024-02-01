@@ -1,13 +1,15 @@
 package com.kh.example.practice2.model;
 
-public class music {
+import java.util.Comparator;
+
+public class Song{
 	private String musicname;
 	private String singername;
 
-	public music() {
+	public Song() {
 	}
 
-	public music(String musicname, String singername) {
+	public Song(String musicname, String singername) {
 		this.musicname = musicname;
 		this.singername = singername;
 	}
@@ -31,6 +33,7 @@ public class music {
 	@Override
 	public String toString() {
 		return "music [musicname=" + musicname + ", singername=" + singername + "]";
-	}
+	}	
+	
 
 }
