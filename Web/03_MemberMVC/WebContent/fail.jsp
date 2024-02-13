@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%=request.getParameter("name") %>님은
-	<%=request.getParameter("count") %>번째 입장하 고 계십니다.
+	<h1>검색된 회원 정보가 없습니다..</h1>
 </body>
 </html>

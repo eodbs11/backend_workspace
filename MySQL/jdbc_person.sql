@@ -10,7 +10,7 @@ INSERT INTO person
 VALUES(999, '테스트', '서울');
 
 DELETE FROM person
-WHERE id = 1;
+WHERE id = 1member;
 
 SELECT *
 FROM person

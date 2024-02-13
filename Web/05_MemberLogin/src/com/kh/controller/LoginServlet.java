@@ -12,38 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import com.kh.model.dao.MemberDAO;
 import com.kh.model.vo.Member;
 
-@WebServlet("/register")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Controller - 비즈니스 로직 작성 공간
-		// 1. 폼 값 받아 온다
 		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
+		String password = request.getParameter("password");
 		String name = request.getParameter("name");
-
-		// 2. VO 작성
-		Member member = new Member(id, pwd, name);
-
-		// 3. DAO 리턴 받기
+		
 		MemberDAO dao = new MemberDAO();
+		Member member = new Member(id, password, name);		
 
 		try {
 			dao.registerMember(member);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		// 4. 바인딩 : 결과 페이지에 서버에서 받은 값을 보낼 때
-		request.setAttribute("name", name);
-
-		// 5. 네비게이션 : 결과 페이지 지정
-		//request.getRequestDispatcher("result.jsp").forward(request, response);
-		// -> 만약에 회원가입이 끝나고 view 페이지를 보여주고 싶다
-		// -> view 페이지는 폼 값 받는 로직 X
-		response.sendRedirect("view");
 	}
 
 }
