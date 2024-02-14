@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<% Member member = (Member) session.getAttribute("member");
+	if(member!=null){ %>
+	
+	<h1>로그인 정보</h1>
+	<ul>
+		<li>아이디 : <%=member.getId() %></li>
+		<li>이름 : <%=member.getName() %></li>
+		<li>비밀번로 : <%=member.getPassword() %></li>
+	</ul>
+	<a href="/index.jsp">첫 페이지로 이동</a> 
+	<!-- '/' 중요 -->
+
+	<% }else{ %>
+	
+		<h2>로그인 실패 다시 로그인 해주세요<h2>
+		<a href="login.html">로그인 페이지로 이동</a>
+		
+		<% } %>
+</body>
+</html>

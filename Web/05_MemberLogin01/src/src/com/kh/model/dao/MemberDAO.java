@@ -1,4 +1,4 @@
-package com.kh.model.dao;
+package src.com.kh.model.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.model.dao.MemberDAO;
 import com.kh.model.vo.Member;
@@ -19,14 +20,17 @@ public class LoginServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
-		String password = request.getParameter("password");
-		String name = request.getParameter("name");
+		String password = request.getParameter("password");	
 		
-		MemberDAO dao = new MemberDAO();
-		Member member = new Member(id, password, name);		
+		MemberDAO dao = new MemberDAO();			
 
 		try {
-			dao.registerMember(member);
+			Member member = dao.login(id, password);
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("member", member);
+			
+			request.getRequestDispatcher("views/allshow.jsp");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

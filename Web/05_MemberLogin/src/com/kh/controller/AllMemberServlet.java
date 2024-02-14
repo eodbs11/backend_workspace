@@ -19,16 +19,21 @@ public class AllMemberServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		// 2. DAO
 		MemberDAO dao = new MemberDAO();
 		ArrayList<Member> list = null;
+		
 		try {
 			list = dao.allShowMember();
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
+		// 3. 바인딩
+		request.setAttribute("list", list);
 		
-		request.setAttribute("list", dao);
+		// 4. 내비게이션
+		request.getRequestDispatcher("views/allshow.jsp").forward(request, response);
 	}
 
 }

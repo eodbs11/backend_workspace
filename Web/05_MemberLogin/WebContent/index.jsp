@@ -1,3 +1,4 @@
+<%@page import="com.kh.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,6 +11,10 @@
 	<h1>회원 관리 기능</h1>
 
 	<ul>
+		<%
+		Member member = (Member) session.getAttribute("member");
+		%>
+		if(member==null){
 		<%-- 로그인 되어 있지 않은 경우 --%>
 		<li><a href="views/register.html">회원가입</a></li>
 		<%--
@@ -38,9 +43,7 @@
 				type="password" name="password"><br> <input
 				type="submit" value="로그인">
 		</form>
-	</ul>
-
-	<ul>
+		}else{
 		<%-- 로그인 된 경우 --%>
 		<li><a href="views/search.html">회원검색</a></li>
 		<%-- 회원검색 : 검색할 아이디를 입력받아서
@@ -54,5 +57,7 @@
 		<li><a href="LogoutServlet">로그아웃</a></li>
 		<%-- 로그아웃 : 로그아웃하고 index.jsp로 오면 됨 --%>
 	</ul>
+	}
+
 </body>
 </html>
