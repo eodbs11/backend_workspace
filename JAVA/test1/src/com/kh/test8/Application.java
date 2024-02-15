@@ -13,7 +13,7 @@ public class Application {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "1234");			
 			
-			PreparedStatement st = conn.prepareStatement(query);
+			PreparedStatement st = conn.prepareStatement(query : );
 			
 			ResultSet rs = st.executeUpdate();
 			
